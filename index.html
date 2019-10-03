@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Latihan3</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="jquery-3.4.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <p>DataTable</p>
+        <br>
+        <table id="mytable" class="table" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>nama</th>
+                    <th>email</th>
+                </tr>
+
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>nama</th>
+                    <th>email</th>
+
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $.get("employee.json", function (employee) {
+            console.log(employee);
+
+            $('#mytable').DataTable({
+                data: employee,
+                coloumns: [
+                    { data: 'id' },
+                    { data: 'nama' },
+                    { data: 'email' }
+                ]
+            });
+
+
+        });
+    })
+</script>
+
+</html>
